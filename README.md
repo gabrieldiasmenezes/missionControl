@@ -94,12 +94,6 @@ Além do monitoramento da cápsula, o sistema inclui um módulo de **análise oc
 
 ---
 
-## 🐙 Repositório
-
-**[https://github.com/Brukimy/1CCPW_GS](https://github.com/Brukimy/1CCPW_GS)**
-
----
-
 ## 🗂️ Estrutura do Repositório
 
 ```
