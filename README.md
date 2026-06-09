@@ -32,12 +32,6 @@ Além do monitoramento da cápsula, o sistema inclui um módulo de **análise oc
 ### Alerta crítico — situação de emergência
 ![Alerta Crítico](assets/demo_alerta.png)
 
-### Análise estatística — série histórica El Niño/La Niña (NOAA/NASA)
-![Série Histórica ONI](assets/grafico2_serie_historica.png)
-
-### Histograma — Anomalia de Temperatura do Pacífico Equatorial
-![Histograma SST](assets/grafico1_histograma_sst.png)
-
 ---
 
 ## ⚙️ Funcionalidades
@@ -50,21 +44,6 @@ Além do monitoramento da cápsula, o sistema inclui um módulo de **análise oc
   - Demo 1: Operação Normal — Chain-of-Thought
   - Demo 2: Alerta Térmico — Few-Shot (previsão de falha)
   - Demo 3: Emergência — Targeted/Directional Prompting
-  - Demo 4–6: Cenários oceânicos (El Niño / La Niña)
-  - Demo 7: Dados reais NOAA + NASA ao vivo
-
-### 🌊 Módulo 2 — Monitoramento Oceânico
-- Download automático de dados reais do **NOAA CPC** (satélites altimétricos NASA)
-- Classificação ENSO: El Niño Fraco / Moderado / Forte, La Niña, Neutro
-- Geração de alertas para missão baseados em índice ONI atual
-
-### 📊 Módulo 3 — Análise Estatística (`analise_estatistica.py`)
-- Base de dados real: **NOAA ONI + NASA GISS GISTEMP v4** (1950–2024)
-- Tabelas de distribuição de frequências (variável discreta + contínua)
-- Gráficos estatísticos completos (histograma + série histórica)
-- Análises univariadas: média, mediana, moda, desvio padrão, quartis, CV
-- Verificação cruzada ONI × temperatura global (correlações de Pearson e Spearman)
-- Relatório PDF gerado automaticamente (8 páginas)
 
 ---
 
