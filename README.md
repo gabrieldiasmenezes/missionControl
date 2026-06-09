@@ -89,13 +89,22 @@ missionControl/
 
 ## ▶️ Como executar o projeto (rápido)
 
-1. Acesse o Google Colab:  
+1. 📥 Clone o repositório (opcional, mas recomendado)
+
+Se preferir, você pode clonar o projeto diretamente para sua máquina:
+
+```bash
+git clone https://github.com/gabrieldiasmenezes/missionControl.git
+cd missionControl
+```
+
+2. Acesse o Google Colab:  
    👉 https://colab.research.google.com  
    Em seguida, faça upload do arquivo `mission_control_ia.ipynb`.
 
 ---
 
-2. 🔑 Configuração da chave de API (obrigatório)
+3. 🔑 Configuração da chave de API (obrigatório)
 
 Para que a aplicação funcione corretamente, é necessário criar e configurar uma chave de API da Groq com o nome:
 ```bash
@@ -126,9 +135,11 @@ import os
 os.environ["GROQ_API_KEY"] = "SUA_CHAVE_AQUI"
 Ou,no Colab, configure a variável de ambiente GROQ_API_KEY nos Secrets (ou defina antes de executar):
 
-```
+``` 
 
-3. Execute as células em ordem — o notebook instala dependências e demonstra 7 cenários (normal, alerta térmico, emergência, análise ONI, etc.).
+---
+
+4. Execute as células em ordem — o notebook instala dependências e demonstra 7 cenários (normal, alerta térmico, emergência, análise ONI, etc.).
 
 Observações:
 - O modelo roda via API Groq — não é necessária GPU local.
