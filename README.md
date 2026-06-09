@@ -17,9 +17,11 @@
 
 ## 📌 Resumo do Projeto
 
-Projeto acadêmico que implementa um sistema experimental de monitoramento para uma cápsula espacial. Desenvolvido em Python e usando LLaMA 3.3 via Groq para gerar análises e decisões automatizadas a partir de telemetria simulada (temperatura, energia, comunicação, oxigênio, luminosidade e vibração). O repositório também contém um módulo de análise oceânica que processa séries do NOAA ONI para detectar sinais de El Niño / La Niña.
+Projeto acadêmico que implementa um sistema experimental de monitoramento e tomada de decisão para uma cápsula espacial. Desenvolvido em Python, o sistema utiliza o modelo LLaMA 3.3 via Groq para interpretar dados de telemetria simulada e gerar análises automatizadas em tempo real.
 
-O objetivo é demonstrar como técnicas de Prompt Engineering combinadas com modelos de grande porte podem automatizar monitoramento e suporte à decisão em missões espaciais e estudos ambientais.
+A aplicação monitora variáveis críticas da cápsula, como temperatura, nível de energia, qualidade da comunicação, oxigênio, luminosidade e vibração estrutural. Com base nesses dados, o modelo é capaz de identificar padrões de risco, emitir alertas e sugerir respostas operacionais simuladas, demonstrando um fluxo de suporte inteligente à decisão em ambientes extremos.
+
+O objetivo do projeto é demonstrar como técnicas de Prompt Engineering, aliadas a modelos de linguagem de grande escala, podem ser aplicadas na automação de sistemas de controle e monitoramento em missões espaciais, reforçando o potencial da IA em cenários críticos e de alta complexidade.
 
 ---
 
@@ -46,7 +48,6 @@ Vídeo demonstrativo: [▶️ Demonstração (YouTube)](https://youtu.be/hJtJuzi
 - **Monitoramento da cápsula:** temperatura, energia, comunicação, oxigênio, luminosidade e vibração
 - **Alertas automáticos:** estados OK / ALERTA / CRÍTICO com limiares configuráveis
 - **Ações automatizadas:** ex.: energia < 20% → modo economia; falha de comunicação → fallback de telemetria
-- **Módulo OCEAN-AI:** análise de séries ONI para identificar eventos climáticos (El Niño / La Niña)
 - **Várias demos de Prompt Engineering** dentro do notebook para ilustrar comportamento do modelo
 
 ---
@@ -63,7 +64,6 @@ Vídeo demonstrativo: [▶️ Demonstração (YouTube)](https://youtu.be/hJtJuzi
 
 ## 🔬 Técnicas de Prompt Engineering usadas
 
-- **Role Prompting:** separação de papéis MISSION-AI e OCEAN-AI
 - **Constraint Specification:** limiares operacionais embutidos no prompt
 - **Structured Data Injection:** telemetria e séries temporais estruturadas
 - **Chain-of-Thought:** raciocínio passo-a-passo em exemplos críticos
@@ -79,8 +79,8 @@ missionControl/
 ├── assets/                       # imagens e gráficos usados no notebook
 │   ├── demo_normal.png
 │   ├── demo_alerta.png
-│   ├── grafico1_histograma_sst.png
-│   └── grafico2_serie_historica.png
+│   ├── dashboard.png
+│   └── chatbot.png
 ├── mission_control_ia.ipynb      # notebook principal com demos e execução
 ├── README.md
 ```
