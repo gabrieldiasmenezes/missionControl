@@ -1,8 +1,7 @@
 # Mission Control AI — GS 2026.1
 ### Sistema Inteligente de Monitoramento de Missão Espacial
 
-> **FIAP — Global Solution 2026.1 | Space Connect**  
-> Ciências da Computação — 1º Ano | 1º Semestre de 2026
+> **FIAP — Global Solution 2026.1 | Space Connect**
 
 ---
 
@@ -16,11 +15,11 @@
 
 ---
 
-## 📌 O que o projeto faz
+## 📌 Resumo do Projeto
 
-Sistema inteligente de monitoramento de missão espacial experimental construído com **Python + LLaMA 3.3 (via Groq)**. O sistema interpreta dados simulados de temperatura, energia, comunicação, oxigênio, luminosidade e vibração de uma cápsula espacial, gerando alertas automáticos e análises via IA quando parâmetros saem dos limites operacionais.
+Projeto acadêmico que implementa um sistema experimental de monitoramento para uma cápsula espacial. Desenvolvido em Python e usando LLaMA 3.3 via Groq para gerar análises e decisões automatizadas a partir de telemetria simulada (temperatura, energia, comunicação, oxigênio, luminosidade e vibração). O repositório também contém um módulo de análise oceânica que processa séries do NOAA ONI para detectar sinais de El Niño / La Niña.
 
-Além do monitoramento da cápsula, o sistema inclui um módulo de **análise oceânica** que processa dados reais do **NOAA ONI** (coletados por satélites NASA) para detectar eventos El Niño / La Niña — demonstrando como IA e dados espaciais se integram ao controle de missões com impacto ambiental real.
+O objetivo é demonstrar como técnicas de Prompt Engineering combinadas com modelos de grande porte podem automatizar monitoramento e suporte à decisão em missões espaciais e estudos ambientais.
 
 ---
 
@@ -32,93 +31,123 @@ Além do monitoramento da cápsula, o sistema inclui um módulo de **análise oc
 ### Alerta crítico — situação de emergência
 ![Alerta Crítico](assets/demo_alerta.png)
 
----
+### Dashboard mostrando os dados da cápusla
+![Alerta Crítico](assets/dashboard.png)
 
-## ⚙️ Funcionalidades
+### Demonstração do chatbot funcionando
+![Alerta Crítico](assets/chatbot.png)
 
-### 🚀 Módulo 1 — Cápsula Espacial (`gs_prompt_ia.ipynb`)
-- **Monitoramento de 6 parâmetros:** temperatura, energia, comunicação, oxigênio, luminosidade, vibração
-- **Alertas automáticos** (OK / ALERTA / CRÍTICO) com limiares operacionais definidos
-- **Lógica de decisão:** ex: energia < 20% → ativa modo de economia
-- **7 demonstrações** com técnicas diferentes de Prompt Engineering:
-  - Demo 1: Operação Normal — Chain-of-Thought
-  - Demo 2: Alerta Térmico — Few-Shot (previsão de falha)
-  - Demo 3: Emergência — Targeted/Directional Prompting
+Vídeo demonstrativo: [▶️ Demonstração (YouTube)](https://youtu.be/hJtJuzijPu0)
 
 ---
 
-## 🤖 Modelo de IA
+## ⚙️ Funcionalidades principais
 
-| Item | Detalhe |
-|------|---------|
-| Modelo | `llama-3.3-70b-versatile` (LLaMA 3.3 — 70B parâmetros) |
-| Provedor | **Groq** (inferência via API) |
-| Temperatura | 0.3 (respostas consistentes e precisas) |
-| Max tokens | 900 por resposta |
-| Context window | 128k tokens |
+- **Monitoramento da cápsula:** temperatura, energia, comunicação, oxigênio, luminosidade e vibração
+- **Alertas automáticos:** estados OK / ALERTA / CRÍTICO com limiares configuráveis
+- **Ações automatizadas:** ex.: energia < 20% → modo economia; falha de comunicação → fallback de telemetria
+- **Módulo OCEAN-AI:** análise de séries ONI para identificar eventos climáticos (El Niño / La Niña)
+- **Várias demos de Prompt Engineering** dentro do notebook para ilustrar comportamento do modelo
 
 ---
 
-## 🔬 Técnicas de Prompt Engineering utilizadas
+## 🤖 Modelo e configuração de inferência
 
-| Técnica | Aplicação |
-|---------|-----------|
-| **Role Prompting** | MISSION-AI e OCEAN-AI com papéis definidos |
-| **Constraint Specification** | Limiares operacionais injetados no prompt |
-| **Structured Data Injection** | Dados da cápsula/oceano em formato estruturado |
-| **Chain-of-Thought** | IA raciocina passo a passo sobre o status |
-| **Few-Shot Prompting** | Exemplos de análise anteriores para calibrar resposta |
-| **Variational Prompting** | Efeito do parâmetro `temperature` demonstrado |
-| **Targeted/Directional** | Prompts focados em situações críticas específicas |
+- **Modelo:** llama-3.3-70b-versatile (via Groq)
+- **Fornecedor:** Groq (API)
+- **Temperatura:** 0.3 (configuração sugerida)
+- **Max tokens por resposta:** 900
+- **Context window:** até 128k tokens (configuração usada no notebook)
 
 ---
 
-## 🗂️ Estrutura do Repositório
+## 🔬 Técnicas de Prompt Engineering usadas
+
+- **Role Prompting:** separação de papéis MISSION-AI e OCEAN-AI
+- **Constraint Specification:** limiares operacionais embutidos no prompt
+- **Structured Data Injection:** telemetria e séries temporais estruturadas
+- **Chain-of-Thought:** raciocínio passo-a-passo em exemplos críticos
+- **Few-Shot / Exemplos:** calibragem para previsões e diagnósticos
+- **Variational Prompting:** demonstração do efeito de `temperature`
+
+---
+
+## 🗂 Estrutura do repositório
 
 ```
-GlobalSolution/
-├── assets/                            ← prints e imagens do sistema
+missionControl/
+├── assets/                       # imagens e gráficos usados no notebook
 │   ├── demo_normal.png
 │   ├── demo_alerta.png
 │   ├── grafico1_histograma_sst.png
 │   └── grafico2_serie_historica.png
-├── mission_control_ia.ipynb 
-├── README.md  
-
+├── mission_control_ia.ipynb      # notebook principal com demos e execução
+├── README.md
 ```
 
 ---
 
-## ▶️ Como Executar
+## ▶️ Como executar o projeto (rápido)
 
-
-### 1. Acesse o notebook no Google Colab:  
-   **[🔗 Abrir no Google Colab](https://colab.research.google.com)**  
-   *(fazer upload do arquivo `mission_control_ia.ipynb`)*
-
-### 2. Configure a chave da API Groq nos **Secrets do Colab** (🔑):
-   - Nome: `GROQ_API_KEY`  
-   - Valor: sua chave em [console.groq.com/keys](https://console.groq.com/keys) (gratuita)
-
-### 3. Execute todas as células em ordem — o sistema baixa dependências automaticamente
-
-> O modelo LLaMA 3.3 70B roda via API Groq — sem GPU necessária, sem instalação local.
-
+1. Acesse o Google Colab:  
+   👉 https://colab.research.google.com  
+   Em seguida, faça upload do arquivo `mission_control_ia.ipynb`.
 
 ---
 
-## 🎬 Vídeo de Demonstração
+2. 🔑 Configuração da chave de API (obrigatório)
 
-[▶️ Assistir ao vídeo](https://youtu.be/SEU_LINK_AQUI)
+Para que a aplicação funcione corretamente, é necessário criar e configurar uma chave de API da Groq com o nome:
+```bash
+GROQ_API_KEY
+```
+
+No Google Colab, você pode fazer isso de duas formas:
+
+### ✔️ Opção 1 — Usando Secrets (recomendado)
+Vá em:
+```bash
+Ferramentas > Secrets (ou Ambiente de execução > Secrets)
+```
+
+Adicione:
+- **Nome:** `GROQ_API_KEY`
+- **Valor:** sua chave da Groq
+
+🔗 Obter chave: https://console.groq.com/keys
 
 ---
 
-## 🛠️ Tecnologias
+### ✔️ Opção 2 — Definição manual no notebook
+Execute no início do notebook:
 
-- **Python 3.10+**
-- **Groq SDK** — inferência LLaMA 3.3 70B
-- **Google Colab** — ambiente de execução
+```python
+import os
+os.environ["GROQ_API_KEY"] = "SUA_CHAVE_AQUI"
+Ou,no Colab, configure a variável de ambiente GROQ_API_KEY nos Secrets (ou defina antes de executar):
+
+```
+
+3. Execute as células em ordem — o notebook instala dependências e demonstra 7 cenários (normal, alerta térmico, emergência, análise ONI, etc.).
+
+Observações:
+- O modelo roda via API Groq — não é necessária GPU local.
+- Recomendado Python 3.10+ quando executar localmente (se desejar).
 
 ---
 
-> Projeto acadêmico — FIAP Global Solution 2026.1 | Uso educacional
+## Desenvolvimento local (opcional)
+
+- Criar um virtualenv Python 3.10+ e instalar dependências (quando houver `requirements.txt`).
+- Ajustar `GROQ_API_KEY` em variáveis de ambiente antes de executar scripts locais.
+
+---
+
+## Referências e recursos
+
+- Console Groq: https://console.groq.com/keys
+- NOAA ONI (dados usados no notebook): https://www.ncdc.noaa.gov/teleconnections/enso/indics/oni
+
+---
+
+Projeto acadêmico — FIAP Global Solution 2026.1 | Uso educacional
